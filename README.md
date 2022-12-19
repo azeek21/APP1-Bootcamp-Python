@@ -1,6 +1,7 @@
-## APP1-Bootcamp-Python
+# APP1-Bootcamp-Python
 
-# APP1 Bootcamp Python. My answers for Python intensive at school 21 Sber.
+## APP1 Bootcamp Python. 
+### My answers for Python intensive at school 21 Sber.
 
 
 Task files are in README.md files inside each dayXX directory with my asnwers.
