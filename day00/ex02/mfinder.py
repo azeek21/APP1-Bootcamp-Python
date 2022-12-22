@@ -1,9 +1,4 @@
-from argparse import ArgumentParser
-import sys
-
-
 TEMPLATE = "*000*\n**0**\n*0*0*"
-
 
 # check if string includes M
 def is_m(line: str) -> bool:
@@ -32,30 +27,24 @@ def is_2dmap(line) -> bool:
 
 
 def main():
-    # initialize parser instance
-    parser = ArgumentParser()
 
-    # adding argument "filename" to read from arguments
-    parser.add_argument('filename', help="name  or path to a file to read the M from")
-
-    filename = parser.parse_args().filename
-
-    # reading from file with a little bit of safety
     try:
-        with open(filename, "r") as file:
-            line = file.readlines()
-    except IsADirectoryError as e:
-        print(e)
+        lines = []
+        for i in range(100):
+            inp = input()
+            if len(inp) != 5 and i < 3:
+                print("Bad dimensions for the picture. Picture should be 5 chars long per line.")
+                return
+            elif len(inp) == 5 and i < 3:
+                lines.append(inp)
+            elif len(inp) == 0 and i >= 3:
+                break
+            elif len(inp) > 0 and i >= 3:
+                print("Bad dmensions for the picture. Height of the picture should be 3 lines high.")
+    except Exception as e:
+        print("FATAL: something went wrong, exiting ...")
         return
-    except FileNotFoundError as e:
-        print(e)
-        return
-
-    # checks the map and existance of M in it.
-    # as script is executed from left to right below
-    # is_m() function will not be called if is_2dmap() returns false
-    # so below line is safe and will not execute on wrong map.
-    print(is_2dmap(line) and is_m(''.join(line)))
+    print(is_2dmap(lines) and is_m('\n'.join(lines)))
 
 
 if __name__ == "__main__":
