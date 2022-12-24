@@ -1,0 +1,5 @@
+async-timeout==4.0.2
+importlib-metadata==5.2.0
+redis==4.4.0
+typing-extensions==4.4.0
+zipp==3.11.0
